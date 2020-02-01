@@ -36,13 +36,15 @@ movieApp.controller('movieController', ['$scope', '$resource', 'movieService', f
 
   $scope.movie = movieService.movie;  
 
-  $scope.movieAPI = $resource("https://www.omdbapi.com/?S=Gladiator&apikey=thewdb", { callback: "JSON_CALLBACK" }, { get: { method: "JSONP" }});
+  $scope.movieAPI = $resource(`https://www.omdbapi.com/?S=${$scope.movie}&apikey=thewdb`, { callback: "JSON_CALLBACK" }, { get: { method: "JSONP" }});
 
   $scope.movieResult = $scope.movieAPI.get({ q: $scope.movie });
 
+  console.log($scope.movieAPI);
   console.log($scope.movieResult);
 
   setTimeout(() => {
+    console.log($scope.movieAPI);
     console.log($scope.movieResult);
   }, 4000);
 
