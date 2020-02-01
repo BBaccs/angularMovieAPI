@@ -18,7 +18,7 @@ movieApp.config(function ($routeProvider) {
 
 // Service
 movieApp.service('movieService', function(){
-  this.movie = 'Gladiator';
+  this.movie = '';
 });
 
 // Controller
