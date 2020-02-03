@@ -14,16 +14,16 @@
       <a class="btn btn-primary mb-5" href="#/">Return To Home Page</a>
     </div>
 
-    <div class="card card-body mb-3">
+    <div ng-repeat="m in movieResult.Search" class="card card-body mb-3">
         <div class="col-sm">
-        <p>Movie Title: {{ movieResult.Search[0].Title }}</p>
-        <p>Year Released: {{ movieResult.Search[0].Year }} </p>
+        <p>Movie Title: {{ m.Title }}</p>
+        <p>Year Released: {{ m.Year }} </p>
         </div>
         <div class="col-sm">
-          <img src="{{ movieResult.Search[0].Poster }}" alt="{{ movieResult.Search[0].Title }}'s Movie Poster">
+          <img src="{{ m.Poster }}" alt="{{ m.Title }}'s Movie Poster">
         </div>
         <div class="col-sm mt-2">
-          <a class="btn btn-primary" href="{{ movieResult.Search[0].Poster }}">View {{ movieResult.Search[0].Title }}'s poster</a>
+          <a class="btn btn-primary" href="{{ m.Poster }}">View {{ m.Title }}'s poster</a>
         </div>
     </div>
 
