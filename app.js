@@ -16,10 +16,18 @@ movieApp.config(function ($routeProvider) {
   
 });
 
-// Service
+// Services
 movieApp.service('movieService', function(){
   this.movie = '';
 });
+
+movieApp.service('searchMovieService', ['$resource', function ($resource) {
+
+  this.getMovies = function(movie){
+    var movieAPI = $resource(`https://www.omdbapi.com/?S=${movie}&apikey=thewdb`, { callback: "JSON_CALLBACK" }, { get: { method: "JSONP" }});
+    return movieAPI.get({ q: movie });
+  } 
+}]);
 
 // Controller
 movieApp.controller('homeController', ['$scope', '$location', 'movieService', function($scope, $location,  movieService) {
@@ -37,13 +45,11 @@ movieApp.controller('homeController', ['$scope', '$location', 'movieService', fu
 
 }]);
 
-movieApp.controller('movieController', ['$scope', '$resource', 'movieService', function($scope, $resource, movieService) {
+movieApp.controller('movieController', ['$scope', 'movieService', 'searchMovieService', function($scope, movieService, searchMovieService) {
 
   $scope.movie = movieService.movie;  
 
-  $scope.movieAPI = $resource(`https://www.omdbapi.com/?S=${$scope.movie}&apikey=thewdb`, { callback: "JSON_CALLBACK" }, { get: { method: "JSONP" }});
-
-  $scope.movieResult = $scope.movieAPI.get({ q: $scope.movie });
+  $scope.movieResult = searchMovieService.getMovies($scope.movie);
 
   console.log($scope.movieAPI);
   console.log($scope.movieResult);
