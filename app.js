@@ -50,14 +50,6 @@ movieApp.controller('movieController', ['$scope', 'movieService', 'searchMovieSe
 
   $scope.movieResult = searchMovieService.getMovies($scope.movie);
 
-  console.log($scope.movieAPI);
-  console.log($scope.movieResult);
-
-  setTimeout(() => {
-    console.log($scope.movieAPI);
-    console.log($scope.movieResult);
-  }, 4000);
-
 }]);
 
 // Directives
