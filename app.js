@@ -22,9 +22,14 @@ movieApp.service('movieService', function(){
 });
 
 // Controller
-movieApp.controller('homeController', ['$scope', 'movieService', function($scope, movieService) {
+movieApp.controller('homeController', ['$scope', '$location', 'movieService', function($scope, $location,  movieService) {
 
   $scope.movie = movieService.movie;
+
+  $scope.submit = function() {
+    
+    $location.path("/movie");
+  }
 
   $scope.$watch('movie', function() {
     movieService.movie = $scope.movie; 
