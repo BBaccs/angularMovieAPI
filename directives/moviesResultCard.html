@@ -1,0 +1,13 @@
+<div ng-repeat="m in movieResult.Search" class="card card-body mb-3">
+    <div class="col-sm">
+        <p>Title: {{ m.Title }}</p>
+        <p>Year Released: {{ m.Year }}</p>
+        <p>Type: {{ m.Type }}</p>
+    </div>
+    <div class="col-sm">
+        <img src="{{ m.Poster }}" alt="{{ m.Title }}'s Movie Poster">
+    </div>
+    <div class="col-sm mt-2">
+        <a class="btn btn-primary" href="{{ m.Poster }}">View {{ m.Title }}'s poster</a>
+    </div>
+</div>

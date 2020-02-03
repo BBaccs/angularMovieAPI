@@ -35,7 +35,6 @@ movieApp.controller('homeController', ['$scope', '$location', 'movieService', fu
   $scope.movie = movieService.movie;
 
   $scope.submit = function() {
-    
     $location.path("/movie");
   }
 
@@ -60,3 +59,12 @@ movieApp.controller('movieController', ['$scope', 'movieService', 'searchMovieSe
   }, 4000);
 
 }]);
+
+// Directives
+movieApp.directive('moviesResultCard', function(){
+  return {
+    restrict: 'E',
+    templateUrl: 'directives/moviesResultCard.html',
+    replace: true
+  }
+});
