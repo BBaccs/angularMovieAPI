@@ -7,7 +7,11 @@
     </div> 
 
     <div class="row">
-      <p>Number of Matches: {{ movieResult.totalResults }}</p>
+      <p>Number of Matches: {{ movieResult.Search.length }}</p>
+    </div>
+
+    <div ng-repeat="m in movieResult.Search | orderBy: 'orderByYear'">
+      {{ m.Year }} hi
     </div>
 
     <div class="row">

@@ -42,6 +42,8 @@ movieApp.controller('homeController', ['$scope', '$location', 'movieService', fu
     movieService.movie = $scope.movie; 
  });
 
+ $scope.orderByYear = "-Year"; 
+
 }]);
 
 movieApp.controller('movieController', ['$scope', 'movieService', 'searchMovieService', function($scope, movieService, searchMovieService) {
@@ -49,7 +51,6 @@ movieApp.controller('movieController', ['$scope', 'movieService', 'searchMovieSe
   $scope.movie = movieService.movie;  
 
   $scope.movieResult = searchMovieService.getMovies($scope.movie);
-
 }]);
 
 // Directives
